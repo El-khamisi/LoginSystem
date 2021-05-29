@@ -64,9 +64,10 @@ Dataset::Dataset(std::string fileName, std::string username)
         this->filePathData = "libs" + slash + fileName + ".csv";
         this->filePathPass = "libs" + slash + fileName + "Pass.csv";
 
-        if (std::filesystem::exists(this->filePathData)
-            || std::filesystem::exists(this->filePathPass)) {
-            fpass.open(this->filePathPass, std::ios::in);
+
+        fdata.open(this->filePathData, std::ios::in);
+        fpass.open(this->filePathPass, std::ios::in);
+        if (fdata && fpass) {
             std::string preline, line;
 
             getline(fpass, line);
@@ -85,6 +86,7 @@ Dataset::Dataset(std::string fileName, std::string username)
             }
             this->lastID = std::stoi(preline.substr(0, preline.find(',')));
             fdata.close();
+            fpass.close();
 
 
             fdata.open(this->filePathData, std::ios::out | std::ios::app);
@@ -286,7 +288,10 @@ void Dataset::updateRecord(int id) {
 
         std::remove(&*(this->filePathData.begin()));
         std::rename(&*(tempfile.begin()), &*(this->filePathData.begin()));
-        if (!std::filesystem::exists(this->filePathData))throw "Error has been occurred";
+        std::fstream ftemp;
+        ftemp.open(this->filePathData, std::ios::in);
+        if (!ftemp)throw "Error has been occurred";
+        ftemp.close();
 
     } catch (char const *e) {
         std::cout << e << std::endl;

@@ -55,7 +55,8 @@ int main() {
                  << '\t' << "2 $Update An Existence Record\n"
                  << '\t' << "3 $Delete An Existence Record.\n "
                  << '\t' << "4 $Show An Existence Record.\n"
-                 << '\t' << "0 $$ShutDown The System.$$" << endl;
+                 << '\t' << "0 $$ShutDown The System.$$\n"
+                 << "---------------------------------------------------" << endl;
 
             cout << "Selection:    $ ";
             inputNumber(selection);
@@ -96,7 +97,9 @@ int main() {
             cout << "Enter A Number to Choose An Operation:\n"
                  << '\t' << "1 $Show your Record.\n"
                  << '\t' << "2 $Update your  Record\n"
-                 << '\t' << "0 $$ShutDown The System.$$" << endl;
+                 << '\t' << "0 $$ShutDown The System.$$\n"
+                 << "---------------------------------------------------" << endl;
+
 
             cout << "Selection:    $";
             inputNumber(selection);
