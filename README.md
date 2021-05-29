@@ -14,8 +14,9 @@ There are separated files one to store data and another to store usernames and p
 
 ### Prerequisites
 * CMake 3.16 or higher<br>
-    * To Compiling and Build Executable Files. OR <a href="#manually">(Build manually)</a> <br>
+    * To Compiling and Build Executable Files. OR [Build manually](#Build_Manually) <br>
     * *install [CMake](https://cmake.org/download/)*
+
 
 
 ### Compiling
@@ -33,6 +34,7 @@ There are separated files one to store data and another to store usernames and p
    make
    ```
 4. In Source Directory you will find LoginSystem Project to RUN IT....!
+
 
 
 
@@ -75,7 +77,9 @@ Choose Mood...1:Admin  2:Student  9:Exit $ 9
 
 ```
 
-## Build Manually
+
+
+# Build_Manually
 * Generate object files
 ```shell
 $ g++ -c main.cpp -Isrc -o main.o
